@@ -503,7 +503,7 @@ function initGoogleReviews() {
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
-  initCursor();
+  // initCursor(); // Disabled custom cursor for improved UX and performance
   initParticleCanvas();
   initTypewriter();
   initNavbar();

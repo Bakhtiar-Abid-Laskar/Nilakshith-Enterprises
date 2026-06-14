@@ -6,7 +6,7 @@
 /* ----------------------------------------------------------
    1. Google Fonts Import
    ---------------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 /* ----------------------------------------------------------
    2. CSS Custom Properties (Dark Neon Design Tokens)
@@ -63,7 +63,7 @@
   --glass-border:      1px solid rgba(0, 229, 255, 0.12);
 
   /* Typography */
-  --font-heading:      'Space Grotesk', system-ui, sans-serif;
+  --font-heading:      'Outfit', system-ui, sans-serif;
   --font-body:         'Inter', system-ui, sans-serif;
   --font-mono:         'JetBrains Mono', 'Fira Code', monospace;
 
@@ -138,13 +138,7 @@ body {
   background-color: var(--color-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: none; /* replaced by custom cursor */
   overflow-x: hidden;
-}
-
-/* Show default cursor on mobile */
-@media (max-width: 768px) {
-  body { cursor: auto; }
 }
 
 img, svg {
@@ -170,43 +164,11 @@ button {
 }
 
 /* ----------------------------------------------------------
-   4. Custom Cursor
+   4. Custom Cursor (Disabled)
    ---------------------------------------------------------- */
 .cursor-dot,
 .cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: opacity var(--transition-base);
-  border-radius: 50%;
-}
-
-.cursor-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--color-cyan);
-  box-shadow: var(--glow-cyan-sm);
-}
-
-.cursor-ring {
-  width: 32px;
-  height: 32px;
-  border: 1.5px solid rgba(0, 229, 255, 0.5);
-  transition: transform 0.12s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-}
-
-.cursor-ring.hovered {
-  width: 48px;
-  height: 48px;
-  border-color: var(--color-cyan);
-  box-shadow: var(--glow-cyan-sm);
-}
-
-@media (max-width: 768px) {
-  .cursor-dot, .cursor-ring { display: none; }
+  display: none !important;
 }
 
 /* ----------------------------------------------------------

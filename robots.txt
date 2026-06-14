@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nilakshithenterprise.in/sitemap.xml

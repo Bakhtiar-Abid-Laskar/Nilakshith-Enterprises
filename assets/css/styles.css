@@ -410,8 +410,15 @@ header {
 /* Logo type treatment */
 .navbar__logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
   line-height: 1.1;
+  text-decoration: none;
+}
+.navbar__logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
 }
 .logo-name {
   font-family: 'Plus Jakarta Sans', sans-serif;

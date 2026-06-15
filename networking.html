@@ -7,32 +7,38 @@
   <meta name="description" content="Professional IT networking, LAN/WAN infrastructure, router and switch configuration, VLAN setup, and Wi-Fi deployment for businesses and institutions in Barak Valley, Assam." />
   <link rel="canonical" href="https://nilakshithenterprise.in/networking.html" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
 
+  <!-- Preloader -->
   <div class="preloader" aria-hidden="true">
     <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:16px;">
       <div class="preloader__label">Loading</div>
       <div class="preloader__line-track"><div class="preloader__line"></div></div>
     </div>
   </div>
-  <div class="cursor-dot" aria-hidden="true"></div>
-  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <!-- Skip link -->
   <a href="#main" class="skip-link">Skip to main content</a>
 
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+       ══════════════════════════════════════════ -->
   <header>
-    <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <nav class="navbar animate-load header-slide-down" role="navigation" aria-label="Main navigation">
       <div class="navbar__inner">
+        <!-- Logo -->
         <a href="index.html" class="navbar__logo" aria-label="Nilakshith Enterprise — home">
-          <img src="assets/img/logo.png" alt="" class="navbar__logo-img" width="38" height="38" onerror="this.style.display='none'" />
-          <div class="navbar__logo-text"><strong>Nilakshith Enterprise</strong><span>Internet | CCTV | IT Services</span></div>
+          <div>
+            <span class="logo-name">Nilakshith</span>
+            <span class="logo-suffix">Enterprise</span>
+          </div>
+          <div class="logo-tagline">Internet | CCTV | IT Services</div>
         </a>
+        
+        <!-- Desktop nav links -->
         <ul class="nav-menu" role="list">
           <li><a href="index.html"      class="nav-menu__link">Home</a></li>
           <li><a href="broadband.html"  class="nav-menu__link">Broadband</a></li>
@@ -41,33 +47,51 @@
           <li><a href="about.html"      class="nav-menu__link">About</a></li>
           <li><a href="contact.html"    class="nav-menu__link">Contact</a></li>
         </ul>
-        <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20IT%20networking." class="navbar__cta-btn desktop-only" target="_blank" rel="noopener noreferrer" data-wa-cta="navbar-networking">
-          <i class="ti ti-brand-whatsapp"></i> WhatsApp
+
+        <!-- CTA (desktop) -->
+        <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20IT%20networking."
+           class="navbar__cta-btn desktop-only" target="_blank" rel="noopener noreferrer" data-wa-cta="navbar-networking">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.965L2 22l5.233-1.371a9.944 9.944 0 0 0 4.773 1.216h.004c5.506 0 9.989-4.478 9.99-9.984A9.995 9.995 0 0 0 12.012 2zm5.793 13.593c-.319.897-1.558 1.637-2.146 1.745-.589.108-1.168.162-3.834-.912-3.41-1.376-5.607-4.85-5.777-5.077-.17-.228-1.357-1.802-1.357-3.437 0-1.636.852-2.438 1.157-2.775.305-.336.666-.42.887-.42h.638c.204 0 .476.006.697.528.221.522.756 1.834.821 1.971.066.137.108.297.017.476-.09.18-.135.297-.272.456-.137.159-.289.356-.413.476-.137.137-.282.287-.121.562.161.275.717 1.183 1.536 1.91.543.484.992.836 1.357 1.019.365.183.578.115.756-.09.178-.205.757-.88 1.012-1.222.256-.341.512-.284.862-.153.35.13.222.102 2.222 1.102.13.065.215.297.16.592z"/></svg>
+          WhatsApp
         </a>
+
+        <!-- Hamburger -->
         <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span><span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
         </button>
       </div>
     </nav>
+
+    <!-- Mobile overlay menu -->
     <div class="nav-overlay" role="dialog" aria-modal="true" aria-label="Mobile navigation">
-      <a href="index.html" class="nav-overlay__link">Home</a>
-      <a href="broadband.html" class="nav-overlay__link">Broadband</a>
-      <a href="cctv.html" class="nav-overlay__link">CCTV</a>
-      <a href="networking.html" class="nav-overlay__link">Networking</a>
-      <a href="about.html" class="nav-overlay__link">About</a>
-      <a href="contact.html" class="nav-overlay__link">Contact</a>
-      <a href="https://wa.me/919706817032" class="btn btn--whatsapp btn--lg nav-overlay__wa-btn" target="_blank" rel="noopener noreferrer" data-wa-cta="mobile-overlay"><i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp</a>
+      <div class="nav-drawer">
+        <a href="index.html"      class="nav-drawer__link">Home</a>
+        <a href="broadband.html"  class="nav-drawer__link">Broadband</a>
+        <a href="cctv.html"       class="nav-drawer__link">CCTV</a>
+        <a href="networking.html" class="nav-drawer__link">Networking</a>
+        <a href="about.html"      class="nav-drawer__link">About</a>
+        <a href="contact.html"    class="nav-drawer__link">Contact</a>
+        <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20your%20services."
+           class="btn btn--whatsapp btn--full nav-drawer__wa-btn"
+           target="_blank" rel="noopener noreferrer" data-wa-cta="mobile-overlay">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:8px;" aria-hidden="true"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.965L2 22l5.233-1.371a9.944 9.944 0 0 0 4.773 1.216h.004c5.506 0 9.989-4.478 9.99-9.984A9.995 9.995 0 0 0 12.012 2zm5.793 13.593c-.319.897-1.558 1.637-2.146 1.745-.589.108-1.168.162-3.834-.912-3.41-1.376-5.607-4.85-5.777-5.077-.17-.228-1.357-1.802-1.357-3.437 0-1.636.852-2.438 1.157-2.775.305-.336.666-.42.887-.42h.638c.204 0 .476.006.697.528.221.522.756 1.834.821 1.971.066.137.108.297.017.476-.09.18-.135.297-.272.456-.137.159-.289.356-.413.476-.137.137-.282.287-.121.562.161.275.717 1.183 1.536 1.91.543.484.992.836 1.357 1.019.365.183.578.115.756-.09.178-.205.757-.88 1.012-1.222.256-.341.512-.284.862-.153.35.13.222.102 2.222 1.102.13.065.215.297.16.592z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="main">
 
+    <!-- Page Hero -->
     <section class="page-hero">
       <div class="container">
         <div class="page-hero__inner">
-          <span class="eyebrow fade-up">IT & Networking</span>
-          <h1 class="fade-up" style="--delay:80ms">Enterprise IT Infrastructure & Networking</h1>
-          <p class="fade-up" style="--delay:160ms">Professional LAN/WAN design, router and switch configuration, VLAN setup, Wi-Fi deployment, and ongoing IT support for businesses and institutions across Barak Valley.</p>
+          <span class="eyebrow animate-load hero-eyebrow-fade-up">IT &amp; Networking</span>
+          <h1 class="animate-load hero-title-line1-fade-up">Enterprise IT Infrastructure &amp; Networking</h1>
+          <p class="animate-load hero-subtext-fade-in">Professional LAN/WAN design, router and switch configuration, VLAN setup, Wi-Fi deployment, and ongoing IT support for businesses and institutions across Barak Valley.</p>
         </div>
       </div>
     </section>
@@ -76,54 +100,90 @@
     <section class="section" aria-labelledby="net-services-heading">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow fade-up">Our Networking Services</span>
-          <h2 id="net-services-heading" class="fade-up" style="--delay:80ms">What We Do</h2>
-          <p class="fade-up" style="--delay:160ms">End-to-end network infrastructure planning, deployment, and management for organizations of all sizes.</p>
+          <span class="eyebrow" data-animate="fade-in">Our Networking Services</span>
+          <h2 id="net-services-heading" data-animate="fade-up" data-animate-delay="80">What We Do</h2>
+          <p data-animate="fade-up" data-animate-delay="160">End-to-end network infrastructure planning, deployment, and management for organizations of all sizes.</p>
         </div>
-        <div class="detail-grid" data-stagger>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-topology-ring"></i></div>
+        
+        <div class="detail-grid">
+          <!-- Card 1 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M12 8v8"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/></svg>
+            </div>
             <h3>LAN / WAN Design</h3>
             <p>Structured cabling, rack setup, and network architecture design for scalable, reliable connectivity.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-router"></i></div>
-            <h3>Router & Switch Configuration</h3>
+          
+          <!-- Card 2 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="150">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><line x1="12" y1="6" x2="18" y2="6"/><line x1="12" y1="18" x2="18" y2="18"/></svg>
+            </div>
+            <h3>Router &amp; Switch Configuration</h3>
             <p>Configuration of enterprise-grade Cisco, MikroTik, and TP-Link routers and managed switches.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-layers-difference"></i></div>
-            <h3>VLAN & L2/L3 Routing</h3>
+          
+          <!-- Card 3 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <h3>VLAN &amp; L2/L3 Routing</h3>
             <p>Virtual LAN segmentation, inter-VLAN routing, QoS policies, and traffic prioritization for enterprise environments.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-wifi"></i></div>
+          
+          <!-- Card 4 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="250">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h.01"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M5 13a10 10 0 0 1 14 0"/><path d="M1.5 9.5a15 15 0 0 1 21 0"/></svg>
+            </div>
             <h3>Enterprise Wi-Fi Deployment</h3>
             <p>Access point planning, installation, and controller configuration for seamless wireless coverage across large areas.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-camera-check"></i></div>
+          
+          <!-- Card 5 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="300">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            </div>
             <h3>CCTV Network Integration</h3>
             <p>Seamlessly integrate surveillance cameras into your network infrastructure with dedicated VLANs and bandwidth allocation.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-shield-lock"></i></div>
-            <h3>Firewall & Security Setup</h3>
+          
+          <!-- Card 6 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="350">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </div>
+            <h3>Firewall &amp; Security Setup</h3>
             <p>Network security configuration including firewall rules, VPN, port blocking, and access control lists (ACLs).</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-tool"></i></div>
+          
+          <!-- Card 7 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="400">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
             <h3>Annual Maintenance Contracts</h3>
             <p>Ongoing network monitoring, troubleshooting, and preventive maintenance to keep your infrastructure running optimally.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-headset"></i></div>
-            <h3>Remote & On-Site IT Support</h3>
+          
+          <!-- Card 8 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="450">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+            </div>
+            <h3>Remote &amp; On-Site IT Support</h3>
             <p>Same-day on-site response for critical network failures. Remote support for faster resolution of software and config issues.</p>
           </div>
-          <div class="detail-card fade-up">
-            <div class="detail-card__icon"><i class="ti ti-server-cog"></i></div>
-            <h3>Server & NAS Configuration</h3>
+          
+          <!-- Card 9 -->
+          <div class="detail-card" data-animate="fade-up" data-animate-delay="500">
+            <div class="detail-card__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/><path d="M20 10V14"/><path d="M4 10V14"/></svg>
+            </div>
+            <h3>Server &amp; NAS Configuration</h3>
             <p>Basic server setup, network-attached storage (NAS) configuration, and shared drive management for small and medium businesses.</p>
           </div>
         </div>
@@ -134,19 +194,51 @@
     <section class="section section--surface" aria-labelledby="net-serve-heading">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow fade-up">Clients</span>
-          <h2 id="net-serve-heading" class="fade-up" style="--delay:80ms">Who We Work With</h2>
-          <p class="fade-up" style="--delay:160ms">From small offices to large institutions — we build networks that scale.</p>
+          <span class="eyebrow" data-animate="fade-in">Clients</span>
+          <h2 id="net-serve-heading" data-animate="fade-up" data-animate-delay="80">Who We Work With</h2>
+          <p data-animate="fade-up" data-animate-delay="160">From small offices to large institutions — we build networks that scale.</p>
         </div>
-        <div class="serve-grid" data-stagger>
-          <div class="serve-item fade-up"><i class="ti ti-building serve-item__icon"></i><span class="serve-item__label">Offices & Businesses</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-school serve-item__icon"></i><span class="serve-item__label">Schools & Colleges</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-building-hospital serve-item__icon"></i><span class="serve-item__label">Hospitals & Clinics</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-briefcase serve-item__icon"></i><span class="serve-item__label">Corporate Enterprises</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-building-factory serve-item__icon"></i><span class="serve-item__label">Factories & Warehouses</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-building-community serve-item__icon"></i><span class="serve-item__label">Institutions & NGOs</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-device-desktop serve-item__icon"></i><span class="serve-item__label">IT Departments</span></div>
-          <div class="serve-item fade-up"><i class="ti ti-users serve-item__icon"></i><span class="serve-item__label">Co-working Spaces</span></div>
+        <div class="serve-grid">
+          <!-- Item 1 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="9" y1="22" x2="9" y2="16"/><line x1="15" y1="22" x2="15" y2="16"/><line x1="9" y1="16" x2="15" y2="16"/><path d="M9 6h6"/><path d="M9 10h6"/><path d="M9 14h6"/></svg>
+            <span class="serve-item__label">Offices &amp; Businesses</span>
+          </div>
+          <!-- Item 2 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="100">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5"/></svg>
+            <span class="serve-item__label">Schools &amp; Colleges</span>
+          </div>
+          <!-- Item 3 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="150">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><path d="M14 9h-4v3H7v4h3v3h4v-3h3v-4h-3z"/><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+            <span class="serve-item__label">Hospitals &amp; Clinics</span>
+          </div>
+          <!-- Item 4 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            <span class="serve-item__label">Corporate Enterprises</span>
+          </div>
+          <!-- Item 5 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="250">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><path d="M2 20h20M17 18V8l-5 4V8L7 12V4L2 8v10"/></svg>
+            <span class="serve-item__label">Factories &amp; Warehouses</span>
+          </div>
+          <!-- Item 6 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="300">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><path d="M8 22V12h8v10M2 22V8l10-5 10 5v14"/></svg>
+            <span class="serve-item__label">Institutions &amp; NGOs</span>
+          </div>
+          <!-- Item 7 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="350">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span class="serve-item__label">IT Departments</span>
+          </div>
+          <!-- Item 8 -->
+          <div class="serve-item" data-animate="fade-up" data-animate-delay="400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="serve-item__icon" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            <span class="serve-item__label">Co-working Spaces</span>
+          </div>
         </div>
       </div>
     </section>
@@ -155,23 +247,31 @@
     <section class="section" aria-labelledby="why-net-heading">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow fade-up">Why Choose Us</span>
-          <h2 id="why-net-heading" class="fade-up" style="--delay:80ms">Built on Real Experience</h2>
-          <p class="fade-up" style="--delay:160ms">Over a decade of hands-on network infrastructure work in Barak Valley sets us apart.</p>
+          <span class="eyebrow" data-animate="fade-in">Why Choose Us</span>
+          <h2 id="why-net-heading" data-animate="fade-up" data-animate-delay="80">Built on Real Experience</h2>
+          <p data-animate="fade-up" data-animate-delay="160">Over a decade of hands-on network infrastructure work in Barak Valley sets us apart.</p>
         </div>
-        <div class="services-grid" data-stagger style="max-width:860px; margin:0 auto;">
-          <article class="service-card fade-up">
-            <div class="service-card__icon-wrap"><i class="ti ti-award"></i></div>
+        <div class="services-grid" style="max-width:860px; margin:0 auto;">
+          <article class="service-card" data-animate="fade-up" data-animate-delay="100">
+            <div class="service-card__icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15a7 7 0 1 0-7-7v8l7-4 7 4V8z"/></svg>
+            </div>
             <h3 class="service-card__title">10+ Years in Assam</h3>
             <p class="service-card__desc">Over a decade of installing and maintaining network infrastructure for businesses across Barak Valley and nearby districts.</p>
           </article>
-          <article class="service-card fade-up">
-            <div class="service-card__icon-wrap"><i class="ti ti-clock-bolt"></i></div>
+          
+          <article class="service-card" data-animate="fade-up" data-animate-delay="200">
+            <div class="service-card__icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m12 6-2 6h4l-2 6"/></svg>
+            </div>
             <h3 class="service-card__title">Same-Day Support</h3>
             <p class="service-card__desc">When your network goes down, every minute matters. We respond and dispatch on the same day — no waiting until next business day.</p>
           </article>
-          <article class="service-card fade-up">
-            <div class="service-card__icon-wrap"><i class="ti ti-certificate"></i></div>
+          
+          <article class="service-card" data-animate="fade-up" data-animate-delay="300">
+            <div class="service-card__icon-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+            </div>
             <h3 class="service-card__title">Certified Engineers</h3>
             <p class="service-card__desc">Our team is trained on industry-standard tools and platforms, working with Cisco, MikroTik, Ubiquiti, and TP-Link hardware.</p>
           </article>
@@ -183,25 +283,45 @@
     <section class="section section--surface" aria-labelledby="net-faq-heading">
       <div class="container">
         <div class="section-header">
-          <span class="eyebrow fade-up">FAQ</span>
-          <h2 id="net-faq-heading" class="fade-up" style="--delay:80ms">Networking Questions Answered</h2>
+          <span class="eyebrow" data-animate="fade-in">FAQ</span>
+          <h2 id="net-faq-heading" data-animate="fade-up" data-animate-delay="80">Networking Questions Answered</h2>
         </div>
-        <div class="faq-list fade-up" style="--delay:160ms">
+        <div class="faq-list" data-animate="fade-up" data-animate-delay="160">
           <div class="faq-item">
-            <div class="faq-item__question"><h3>Can you work with our existing network equipment?</h3><i class="ti ti-chevron-down faq-item__chevron"></i></div>
-            <div class="faq-item__answer"><p>Yes. We can work with existing routers, switches, and access points from most major brands. We'll assess your current setup and recommend the most cost-effective path forward.</p></div>
+            <div class="faq-item__question">
+              <h3>Can you work with our existing network equipment?</h3>
+              <svg class="faq-item__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="faq-item__answer">
+              <p>Yes. We can work with existing routers, switches, and access points from most major brands. We'll assess your current setup and recommend the most cost-effective path forward.</p>
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-item__question"><h3>Do you handle structured cabling?</h3><i class="ti ti-chevron-down faq-item__chevron"></i></div>
-            <div class="faq-item__answer"><p>Yes. We handle Cat5e/Cat6 structured cabling, rack mounting, patch panel termination, and cable management for new and existing installations.</p></div>
+            <div class="faq-item__question">
+              <h3>Do you handle structured cabling?</h3>
+              <svg class="faq-item__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="faq-item__answer">
+              <p>Yes. We handle Cat5e/Cat6 structured cabling, rack mounting, patch panel termination, and cable management for new and existing installations.</p>
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-item__question"><h3>Can you set up VLANs and separate networks for different departments?</h3><i class="ti ti-chevron-down faq-item__chevron"></i></div>
-            <div class="faq-item__answer"><p>Absolutely. VLAN segmentation for departments (admin, production, guest Wi-Fi, CCTV, etc.) is one of our core competencies.</p></div>
+            <div class="faq-item__question">
+              <h3>Can you set up VLANs and separate networks for different departments?</h3>
+              <svg class="faq-item__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="faq-item__answer">
+              <p>Absolutely. VLAN segmentation for departments (admin, production, guest Wi-Fi, CCTV, etc.) is one of our core competencies.</p>
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-item__question"><h3>Do you offer an AMC for IT network infrastructure?</h3><i class="ti ti-chevron-down faq-item__chevron"></i></div>
-            <div class="faq-item__answer"><p>Yes. We offer Annual Maintenance Contracts (AMC) covering regular network health checks, firmware updates, configuration backup, and priority support call-outs.</p></div>
+            <div class="faq-item__question">
+              <h3>Do you offer an AMC for IT network infrastructure?</h3>
+              <svg class="faq-item__chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </div>
+            <div class="faq-item__answer">
+              <p>Yes. We offer Annual Maintenance Contracts (AMC) covering regular network health checks, firmware updates, configuration backup, and priority support call-outs.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -210,13 +330,19 @@
     <!-- CTA -->
     <section class="section">
       <div class="container">
-        <div class="cta-banner fade-up">
+        <div class="cta-banner" data-animate="fade-up">
           <span class="eyebrow">Start Your IT Project</span>
           <h2>Build a Network That Works</h2>
           <p>Get a free consultation and quote for your business networking project in Barak Valley.</p>
           <div class="cta-banner__btns">
-            <a href="contact.html" class="btn btn--primary btn--lg"><i class="ti ti-mail"></i> Request IT Support</a>
-            <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20networking%20project." class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer" data-wa-cta="networking-cta"><i class="ti ti-brand-whatsapp"></i> WhatsApp Us</a>
+            <a href="contact.html" class="btn btn--primary btn--lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              Request IT Support
+            </a>
+            <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20discuss%20a%20networking%20project." class="btn btn--whatsapp btn--lg" target="_blank" rel="noopener noreferrer" data-wa-cta="networking-cta">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="margin-right:8px;" aria-hidden="true"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.965L2 22l5.233-1.371a9.944 9.944 0 0 0 4.773 1.216h.004c5.506 0 9.989-4.478 9.99-9.984A9.995 9.995 0 0 0 12.012 2zm5.793 13.593c-.319.897-1.558 1.637-2.146 1.745-.589.108-1.168.162-3.834-.912-3.41-1.376-5.607-4.85-5.777-5.077-.17-.228-1.357-1.802-1.357-3.437 0-1.636.852-2.438 1.157-2.775.305-.336.666-.42.887-.42h.638c.204 0 .476.006.697.528.221.522.756 1.834.821 1.971.066.137.108.297.017.476-.09.18-.135.297-.272.456-.137.159-.289.356-.413.476-.137.137-.282.287-.121.562.161.275.717 1.183 1.536 1.91.543.484.992.836 1.357 1.019.365.183.578.115.756-.09.178-.205.757-.88 1.012-1.222.256-.341.512-.284.862-.153.35.13.222.102 2.222 1.102.13.065.215.297.16.592z"/></svg>
+              WhatsApp Us
+            </a>
           </div>
         </div>
       </div>
@@ -225,17 +351,109 @@
   </main>
 
   <footer class="footer" role="contentinfo">
-    <div class="footer__main"><div class="container"><div class="footer__grid">
-      <div class="footer__brand"><div><div class="footer-logo-text">Nilakshith Enterprise</div><div class="footer-logo-sub">Internet | CCTV | IT Services</div></div><p class="footer__tagline">Fast broadband, CCTV, and IT networking in Barak Valley, Assam.</p></div>
-      <div><p class="footer__heading">Quick Links</p><ul class="footer__links"><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-      <div><p class="footer__heading">Services</p><ul class="footer__links"><li><a href="broadband.html">Broadband</a></li><li><a href="cctv.html">CCTV</a></li><li><a href="networking.html">Networking</a></li></ul></div>
-      <div><p class="footer__heading">Contact</p><ul class="footer__contact-list"><li class="footer__contact-item"><i class="ti ti-phone"></i><a href="tel:+919706817032">+91 97068 17032</a></li><li class="footer__contact-item"><i class="ti ti-mail"></i><a href="mailto:info@nilakshithenterprise.in">info@nilakshithenterprise.in</a></li><li class="footer__contact-item"><i class="ti ti-map-pin"></i><span>Silchar, Assam</span></li></ul></div>
-    </div></div></div>
-    <div class="container"><div class="footer__bottom"><p class="footer__copyright">&copy; 2025 Nilakshith Enterprise. All rights reserved.</p><ul class="footer__bottom-links"><li><a href="sitemap.xml">Sitemap</a></li></ul></div></div>
+    <div class="footer__main">
+      <div class="container">
+        <div class="footer__grid">
+
+          <!-- Brand -->
+          <div class="footer__brand">
+            <div>
+              <span class="footer-logo-text">Nilakshith Enterprise</span>
+              <div class="footer-logo-sub">Internet | CCTV | IT Services</div>
+            </div>
+            <p class="footer__tagline">Providing fast broadband, CCTV installation, and enterprise networking solutions in Barak Valley and Assam since 2014.</p>
+            <div class="footer__social">
+              <a href="https://wa.me/919706817032" class="footer__social-link" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" data-wa-cta="footer-social">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.965L2 22l5.233-1.371a9.944 9.944 0 0 0 4.773 1.216h.004c5.506 0 9.989-4.478 9.99-9.984A9.995 9.995 0 0 0 12.012 2zm5.793 13.593c-.319.897-1.558 1.637-2.146 1.745-.589.108-1.168.162-3.834-.912-3.41-1.376-5.607-4.85-5.777-5.077-.17-.228-1.357-1.802-1.357-3.437 0-1.636.852-2.438 1.157-2.775.305-.336.666-.42.887-.42h.638c.204 0 .476.006.697.528.221.522.756 1.834.821 1.971.066.137.108.297.017.476-.09.18-.135.297-.272.456-.137.159-.289.356-.413.476-.137.137-.282.287-.121.562.161.275.717 1.183 1.536 1.91.543.484.992.836 1.357 1.019.365.183.578.115.756-.09.178-.205.757-.88 1.012-1.222.256-.341.512-.284.862-.153.35.13.222.102 2.222 1.102.13.065.215.297.16.592z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div>
+            <p class="footer__heading">Quick Links</p>
+            <ul class="footer__links" role="list">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="sitemap.xml">Sitemap</a></li>
+            </ul>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <p class="footer__heading">Services</p>
+            <ul class="footer__links" role="list">
+              <li><a href="broadband.html">Internet Broadband</a></li>
+              <li><a href="cctv.html">CCTV &amp; Surveillance</a></li>
+              <li><a href="networking.html">Networking &amp; IT</a></li>
+              <li><a href="cctv.html#amc">CCTV AMC</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <p class="footer__heading">Contact Us</p>
+            <ul class="footer__contact-list" role="list">
+              <li class="footer__contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <a href="tel:+919706817032">+91 97068 17032</a>
+              </li>
+              <li class="footer__contact-item">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.965L2 22l5.233-1.371a9.944 9.944 0 0 0 4.773 1.216h.004c5.506 0 9.989-4.478 9.99-9.984A9.995 9.995 0 0 0 12.012 2zm5.793 13.593c-.319.897-1.558 1.637-2.146 1.745-.589.108-1.168.162-3.834-.912-3.41-1.376-5.607-4.85-5.777-5.077-.17-.228-1.357-1.802-1.357-3.437 0-1.636.852-2.438 1.157-2.775.305-.336.666-.42.887-.42h.638c.204 0 .476.006.697.528.221.522.756 1.834.821 1.971.066.137.108.297.017.476-.09.18-.135.297-.272.456-.137.159-.289.356-.413.476-.137.137-.282.287-.121.562.161.275.717 1.183 1.536 1.91.543.484.992.836 1.357 1.019.365.183.578.115.756-.09.178-.205.757-.88 1.012-1.222.256-.341.512-.284.862-.153.35.13.222.102 2.222 1.102.13.065.215.297.16.592z"/></svg>
+                <a href="https://wa.me/919706817032" target="_blank" rel="noopener noreferrer" data-wa-cta="footer-contact">WhatsApp us</a>
+              </li>
+              <li class="footer__contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                <a href="mailto:info@nilakshithenterprise.in">info@nilakshithenterprise.in</a>
+              </li>
+              <li class="footer__contact-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Kathal Road, Rangirkhari, Silchar, Assam 788005</span>
+              </li>
+            </ul>
+
+            <div class="footer__areas">
+              <p class="footer__areas-label">Service Areas</p>
+              <p class="footer__areas-text">Silchar, Karimganj, Hailakandi (Barak Valley, Assam)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer bottom bar -->
+    <div class="footer__divider"></div>
+    <div class="container">
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          © 2025 Nilakshith Enterprise. All rights reserved.
+        </p>
+        <ul class="footer__bottom-links" role="list">
+          <li><a href="sitemap.xml">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
   </footer>
 
-  <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20IT%20networking." class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-wa-cta="floating-button"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
-  <button class="scroll-to-top" aria-label="Scroll to top"><i class="ti ti-arrow-up" aria-hidden="true"></i></button>
+  <!-- WhatsApp FAB -->
+  <div class="wa-float-wrapper">
+    <div class="wa-tooltip">Chat on WhatsApp</div>
+    <a href="https://wa.me/919706817032?text=Hi%2C%20I%20would%20like%20to%20enquire%20about%20IT%20networking."
+       class="wa-float"
+       target="_blank" rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp"
+       data-wa-cta="floating-button">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.333 4.965L2 22l5.233-1.371a9.944 9.944 0 0 0 4.773 1.216h.004c5.506 0 9.989-4.478 9.99-9.984A9.995 9.995 0 0 0 12.012 2zm5.793 13.593c-.319.897-1.558 1.637-2.146 1.745-.589.108-1.168.162-3.834-.912-3.41-1.376-5.607-4.85-5.777-5.077-.17-.228-1.357-1.802-1.357-3.437 0-1.636.852-2.438 1.157-2.775.305-.336.666-.42.887-.42h.638c.204 0 .476.006.697.528.221.522.756 1.834.821 1.971.066.137.108.297.017.476-.09.18-.135.297-.272.456-.137.159-.289.356-.413.476-.137.137-.282.287-.121.562.161.275.717 1.183 1.536 1.91.543.484.992.836 1.357 1.019.365.183.578.115.756-.09.178-.205.757-.88 1.012-1.222.256-.341.512-.284.862-.153.35.13.222.102 2.222 1.102.13.065.215.297.16.592z"/></svg>
+    </a>
+  </div>
+
+  <!-- Scroll to top -->
+  <button class="scroll-to-top" aria-label="Scroll to top">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <!-- JS -->
   <script src="assets/js/main.js" defer></script>
 </body>
 </html>

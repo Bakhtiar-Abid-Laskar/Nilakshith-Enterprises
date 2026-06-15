@@ -1518,7 +1518,6 @@ header {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  padding-vertical: var(--space-3);
   padding-block: var(--space-3);
   border-bottom: 1px solid var(--color-border);
 }
@@ -2226,14 +2225,14 @@ header {
 .tagembed-widget-container {
   width: 100%;
   max-width: min(1200px, 100vw);
-  /* Height: container drives the iframe height */
-  height: 600px;
+  /* Tighter height — fits the actual review card height without empty space */
+  height: 430px;
   margin: var(--space-8) auto;
   overflow: hidden;
   background: var(--color-bg-page);
   border: 1px solid var(--color-bg-elevated);
   border-radius: var(--radius-lg);
-  padding: 0;          /* no padding — iframe fills edge-to-edge */
+  padding: 0;
   box-shadow: 0 2px 12px rgba(0,0,0,.07);
 }
 
@@ -2254,10 +2253,10 @@ header {
 
 /* No shimmer needed — iframe renders its own loading state */
 
-/* Mobile — reduce height slightly so it fits without scrolling */
+/* Mobile — compact height on small screens */
 @media (max-width: 768px) {
   .tagembed-widget-container {
-    height: 520px;
+    height: 480px;
     margin: var(--space-6) auto;
     border-radius: var(--radius-md);
   }

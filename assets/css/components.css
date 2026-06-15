@@ -779,3 +779,24 @@
   gap: var(--space-4);
   justify-content: center;
 }
+
+/* ----------------------------------------------------------
+   11. Speedtest Container
+   ---------------------------------------------------------- */
+@media (max-width: 768px) {
+  .speedtest-container iframe {
+    height: 520px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .speedtest-container {
+    border-radius: var(--radius-md) !important;
+    padding: 0;
+  }
+  .speedtest-container iframe {
+    height: 440px !important;
+    transform: scale(0.95);
+    transform-origin: top center;
+  }
+}

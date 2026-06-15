@@ -781,11 +781,16 @@
 }
 
 /* ----------------------------------------------------------
-   11. Speedtest Container
+   11. Speedtest Container & Mobile Adjustments
    ---------------------------------------------------------- */
 @media (max-width: 768px) {
   .speedtest-container iframe {
     height: 520px !important;
+  }
+  
+  .navbar__logo-img {
+    width: 48px;
+    height: 48px;
   }
 }
 

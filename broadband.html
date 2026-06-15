@@ -287,100 +287,15 @@
           <p data-animate="fade-up" data-animate-delay="200">Check your current internet speed in real-time with our accurate speed test tool powered by OpenSpeedTest.</p>
         </div>
 
-        <div class="speedtest-container" data-animate="fade-up" data-animate-delay="300" style="width: 100%; max-width: 800px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid var(--color-bg-elevated); padding: var(--space-6); background: var(--color-bg-page); text-align: center;">
-          <div id="st-dashboard" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
-            <div class="st-metric">
-              <div class="st-label" style="color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: 600; text-transform: uppercase;">Download</div>
-              <div id="st-down" style="font-size: 2.5rem; font-weight: 800; color: var(--color-brand); font-family: 'IBM Plex Mono', monospace;">--</div>
-              <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">Mbps</div>
-            </div>
-            <div class="st-metric">
-              <div class="st-label" style="color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: 600; text-transform: uppercase;">Upload</div>
-              <div id="st-up" style="font-size: 2.5rem; font-weight: 800; color: var(--color-brand); font-family: 'IBM Plex Mono', monospace;">--</div>
-              <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">Mbps</div>
-            </div>
-            <div class="st-metric">
-              <div class="st-label" style="color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: 600; text-transform: uppercase;">Latency</div>
-              <div id="st-ping" style="font-size: 2.5rem; font-weight: 800; color: var(--color-text-primary); font-family: 'IBM Plex Mono', monospace;">--</div>
-              <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">ms</div>
-            </div>
-            <div class="st-metric">
-              <div class="st-label" style="color: var(--color-text-secondary); font-size: var(--text-sm); font-weight: 600; text-transform: uppercase;">Jitter</div>
-              <div id="st-jitter" style="font-size: 2.5rem; font-weight: 800; color: var(--color-text-primary); font-family: 'IBM Plex Mono', monospace;">--</div>
-              <div style="font-size: var(--text-sm); color: var(--color-text-secondary);">ms</div>
-            </div>
-          </div>
-          
-          <div id="st-progress" style="width: 100%; height: 6px; background: var(--color-bg-elevated); border-radius: 3px; overflow: hidden; margin-bottom: var(--space-6); display: none;">
-             <div id="st-progress-bar" style="width: 0%; height: 100%; background: var(--color-brand); transition: width 0.2s;"></div>
-          </div>
-
-          <button id="st-start-btn" class="btn btn--brand">Start Speed Test</button>
-          <div id="st-status" style="margin-top: var(--space-3); color: var(--color-text-secondary); font-size: var(--text-sm);">Powered by Cloudflare</div>
-
-          <script type="module">
-            import SpeedTest from 'https://unpkg.com/@cloudflare/speedtest/dist/speedtest.js';
-            
-            const btn = document.getElementById('st-start-btn');
-            const status = document.getElementById('st-status');
-            const prog = document.getElementById('st-progress');
-            const progBar = document.getElementById('st-progress-bar');
-            
-            const eDown = document.getElementById('st-down');
-            const eUp = document.getElementById('st-up');
-            const ePing = document.getElementById('st-ping');
-            const eJitter = document.getElementById('st-jitter');
-
-            let engine = null;
-
-            btn.addEventListener('click', () => {
-              if (engine && engine.isRunning) return;
-              
-              btn.disabled = true;
-              btn.textContent = 'Testing...';
-              prog.style.display = 'block';
-              progBar.style.width = '5%';
-              status.textContent = 'Connecting to Cloudflare edge...';
-              
-              eDown.textContent = '--';
-              eUp.textContent = '--';
-              ePing.textContent = '--';
-              eJitter.textContent = '--';
-
-              engine = new SpeedTest({ autoStart: true });
-              
-              engine.onResultsChange = ({ type }) => {
-                const r = engine.results;
-                if (r.getUnloadedLatency()) ePing.textContent = r.getUnloadedLatency().toFixed(1);
-                if (r.getUnloadedJitter()) eJitter.textContent = r.getUnloadedJitter().toFixed(1);
-                if (r.getDownloadBandwidth()) eDown.textContent = (r.getDownloadBandwidth() / 1000000).toFixed(1);
-                if (r.getUploadBandwidth()) eUp.textContent = (r.getUploadBandwidth() / 1000000).toFixed(1);
-                
-                if (type === 'latency') progBar.style.width = '20%';
-                if (type === 'download') progBar.style.width = '60%';
-                if (type === 'upload') progBar.style.width = '90%';
-              };
-
-              engine.onFinish = results => {
-                btn.disabled = false;
-                btn.textContent = 'Test Again';
-                progBar.style.width = '100%';
-                status.textContent = 'Test Complete. Powered by Cloudflare.';
-                
-                if (results.getUnloadedLatency()) ePing.textContent = results.getUnloadedLatency().toFixed(1);
-                if (results.getUnloadedJitter()) eJitter.textContent = results.getUnloadedJitter().toFixed(1);
-                if (results.getDownloadBandwidth()) eDown.textContent = (results.getDownloadBandwidth() / 1000000).toFixed(1);
-                if (results.getUploadBandwidth()) eUp.textContent = (results.getUploadBandwidth() / 1000000).toFixed(1);
-              };
-              
-              engine.onError = err => {
-                btn.disabled = false;
-                btn.textContent = 'Start Speed Test';
-                status.textContent = 'Error: ' + err;
-                prog.style.display = 'none';
-              };
-            });
-          </script>
+        <div class="speedtest-container" data-animate="fade-up" data-animate-delay="300" style="width: 100%; max-width: 800px; margin: 0 auto; border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08); border: 1px solid var(--color-bg-elevated);">
+          <iframe 
+            src="https://openspeedtest.com/Get-widget.php" 
+            width="100%" 
+            height="600px" 
+            style="border:none; display:block;" 
+            title="OpenSpeedTest Widget"
+            loading="lazy">
+          </iframe>
         </div>
       </div>
     </section>

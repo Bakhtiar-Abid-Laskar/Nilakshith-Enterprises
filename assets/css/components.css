@@ -184,3 +184,171 @@
 /* ═══════════════════════════════════════════════
    END BRANDS CAROUSEL
    ═══════════════════════════════════════════════ */
+
+/* ============================================================
+   MOBILE RESPONSIVE UX ADJUSTMENTS (ADDITIVE OVERRIDES)
+   ============================================================ */
+
+@media (max-width: 768px) {
+  /* FIX 2 — BROADBAND PLANS: 3-COLUMN GRID ON TABLET/MOBILE */
+  .plans-grid,
+  .plan-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  /* FIX 3 — HERO SECTION: LEFT ALIGNMENT, CTA ROW, STAT GRID */
+  .hero__content {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  
+  .hero__badge,
+  .hero-badge,
+  .trust-badge,
+  .hero-eyebrow {
+    text-align: left !important;
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+  }
+  
+  .hero h1,
+  .hero-title,
+  .hero__headline {
+    text-align: left !important;
+  }
+  
+  .hero__subtext {
+    text-align: left !important;
+  }
+  
+  .hero__ctas,
+  .hero-actions,
+  .hero-cta,
+  .btn-group {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 12px !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+  }
+  
+  .hero__ctas a,
+  .hero__ctas button,
+  .hero__ctas .btn,
+  .hero-actions a,
+  .hero-cta a,
+  .btn-group a {
+    flex: 1 !important;
+    text-align: center !important;
+    padding: 11px 10px !important;
+    font-size: 0.85rem !important;
+    white-space: nowrap !important;
+  }
+  
+  .hero__stats-row,
+  .hero-stats,
+  .trust-bar,
+  .stat-bar,
+  .stats-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px 12px !important;
+    text-align: left !important;
+    margin-top: 16px !important;
+    border-top: 1px solid var(--color-border) !important;
+    padding-top: var(--space-5) !important;
+  }
+  
+  .hero__stat-divider,
+  .stat-divider {
+    display: none !important;
+  }
+  
+  .stat-item,
+  .trust-stat,
+  .hero-stat,
+  .hero__stat-item {
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 2px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  /* FIX 1 — GLOBAL MOBILE SIZING */
+  .navbar__logo-img,
+  .navbar-brand img,
+  .logo img,
+  .navbar-logo img {
+    height: 36px !important;
+    width: auto !important;
+  }
+  
+  .navbar {
+    height: 56px !important;
+    min-height: 56px !important;
+  }
+  
+  section,
+  .section {
+    padding-top: 48px !important;
+    padding-bottom: 48px !important;
+    padding-block: 48px !important;
+  }
+  
+  .hero,
+  section.hero {
+    padding-top: 80px !important;
+    padding-bottom: 40px !important;
+    padding-block: 80px 40px !important;
+  }
+  
+  .container {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  /* FIX 2 — BROADBAND PLANS: 3-COLUMN GRID ON MOBILE */
+  .plans-grid,
+  .plan-cards-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+  }
+  
+  .plan-card {
+    padding: 14px 10px !important;
+    border-radius: 12px !important;
+  }
+  
+  .plan-card .plan-speed,
+  .plan-card .plan-price,
+  .plan-card .plan-card__speed-row,
+  .plan-card .plan-card__price-row,
+  .plan-card__speed-num,
+  .plan-card__price-val {
+    font-size: 0.9rem !important;
+  }
+  
+  .plan-card .plan-label,
+  .plan-card .plan-card__title {
+    font-size: 0.7rem !important;
+  }
+  
+  .plan-card .btn {
+    font-size: 0.72rem !important;
+    padding: 8px 6px !important;
+    white-space: nowrap !important;
+  }
+  
+  /* Hide plan card description in 3-column micro grid on small screens to prevent vertical bloating */
+  .plan-card__desc,
+  .plan-card .plan-card__desc {
+    display: none !important;
+  }
+}

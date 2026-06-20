@@ -12,13 +12,40 @@ const qs = (sel, root = document) => root.querySelector(sel);
 const qsAll = (sel, root = document) => [...root.querySelectorAll(sel)];
 
 /**
- * 1. PRELOADER
+ * 1. PRELOADER & SKELETON LOADER
  */
 function initPreloader() {
   const loader = qs('.preloader');
   if (!loader) return;
 
-  const done = () => loader.classList.add('loaded');
+  // Inject responsive skeleton screen layout matching the website structure
+  loader.innerHTML = `
+    <div class="skeleton-wrapper" aria-hidden="true">
+      <div class="skeleton-header">
+        <div class="skeleton-logo skeleton-pulse"></div>
+        <div class="skeleton-nav skeleton-pulse"></div>
+      </div>
+      <div class="skeleton-hero">
+        <div class="skeleton-hero-left">
+          <div class="skeleton-badge skeleton-pulse"></div>
+          <div class="skeleton-title skeleton-pulse"></div>
+          <div class="skeleton-text skeleton-pulse"></div>
+          <div class="skeleton-ctas">
+            <div class="skeleton-btn skeleton-pulse"></div>
+            <div class="skeleton-btn skeleton-pulse"></div>
+          </div>
+        </div>
+        <div class="skeleton-hero-right skeleton-pulse"></div>
+      </div>
+    </div>
+  `;
+
+  const done = () => {
+    // Add loaded class to trigger CSS fade-out transition
+    loader.classList.add('loaded');
+    // Prevent screen reader interference once loaded
+    loader.setAttribute('aria-hidden', 'true');
+  };
 
   if (document.readyState === 'complete') {
     done();

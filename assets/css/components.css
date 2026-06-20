@@ -216,7 +216,8 @@
   .hero h1,
   .hero-title,
   .hero__headline {
-    text-align: left !important;
+    text-align: center !important;
+    width: 100% !important;
   }
   
   .hero__subtext {

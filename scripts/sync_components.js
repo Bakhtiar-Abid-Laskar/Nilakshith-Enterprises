@@ -21,7 +21,8 @@ const htmlFiles = [
   'cctv.html',
   'networking.html',
   'about.html',
-  'contact.html'
+  'contact.html',
+  'privacy.html'
 ].map(file => path.join(rootDir, file));
 
 htmlFiles.forEach(filePath => {

@@ -649,6 +649,31 @@ function initEnquiryForm() {
   }
 }
 
+/**
+ * 14. COOKIE CONSENT BANNER
+ */
+function initCookieConsent() {
+  const banner = qs('#cookie-consent-banner');
+  const acceptBtn = qs('#btn-accept-cookies');
+  if (!banner || !acceptBtn) return;
+
+  const consentKey = 'cookie-consent-accepted';
+
+  // Check if consent has already been given
+  if (!localStorage.getItem(consentKey)) {
+    // Show banner after a slight delay
+    setTimeout(() => {
+      banner.classList.remove('hidden');
+    }, 1500);
+  }
+
+  // Handle accept button click
+  acceptBtn.addEventListener('click', () => {
+    banner.classList.add('hidden');
+    localStorage.setItem(consentKey, 'true');
+  });
+}
+
 // Initialize on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   initPreloader();
@@ -663,4 +688,65 @@ document.addEventListener('DOMContentLoaded', () => {
   initStepConnectors();
   initWhatsAppModal();
   initEnquiryForm();
+  initCookieConsent();
+  initBrandsCarouselScaling();
 });
+
+/**
+ * 15. BRANDS CAROUSEL GEOMETRIC SCALING (Center-grow effect)
+ */
+function initBrandsCarouselScaling() {
+  const wrapper = qs('.brands-track-wrapper');
+  if (!wrapper) return;
+  const logos = qsAll('.brand-logo', wrapper);
+  if (!logos.length) return;
+
+  function updateScales() {
+    const wrapperRect = wrapper.getBoundingClientRect();
+    const wrapperWidth = wrapperRect.width;
+    const centerX = wrapperRect.left + wrapperWidth / 2;
+    const maxDistance = wrapperWidth / 2;
+
+    logos.forEach(logo => {
+      const rect = logo.getBoundingClientRect();
+      const logoCenterX = rect.left + rect.width / 2;
+      const distanceFromCenter = Math.abs(centerX - logoCenterX);
+
+      // Normalized distance (0 at center, 1 at edges)
+      let normalizedDistance = distanceFromCenter / maxDistance;
+      if (normalizedDistance > 1) normalizedDistance = 1;
+
+      // Scale: 1.35 at center, 0.65 at edges
+      const minScale = 0.65;
+      const maxScale = 1.35;
+      let scale = maxScale - (maxScale - minScale) * normalizedDistance;
+
+      // Boost scale if hovered
+      const isHovered = logo.closest('.brand-item')?.matches(':hover');
+      if (isHovered) {
+        scale *= 1.15;
+      }
+
+      // Opacity: 1.0 at center, 0.4 at edges
+      const minOpacity = 0.4;
+      const maxOpacity = 1.0;
+      let opacity = maxOpacity - (maxOpacity - minOpacity) * normalizedDistance;
+      if (isHovered) {
+        opacity = 1.0;
+      }
+
+      logo.style.transform = `scale(${scale})`;
+      logo.style.opacity = opacity;
+    });
+
+    requestAnimationFrame(updateScales);
+  }
+
+  // Only run if user doesn't prefer reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    requestAnimationFrame(updateScales);
+  }
+}
+
+

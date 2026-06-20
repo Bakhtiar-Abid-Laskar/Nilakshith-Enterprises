@@ -481,20 +481,28 @@ header {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  background-color: #25D366;
-  color: var(--color-text-inverse);
+  background-color: transparent;
+  border: 1px solid #25D366;
+  color: #25D366;
   font-size: var(--text-sm);
   font-weight: 600;
-  padding: 10px 20px;
+  padding: 9px 19px; /* slightly adjusted padding for border offset */
   border-radius: var(--radius-pill);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.2);
+  box-shadow: none;
   transition: all var(--transition-fast);
 }
 .navbar__cta-btn:hover {
-  background-color: #1EBE57;
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+  background-color: #25D366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
   transform: translateY(-1px);
   color: var(--color-text-inverse);
+}
+.navbar__cta-btn svg,
+.nav-drawer__wa-btn svg {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /* Hamburger button */
@@ -578,6 +586,15 @@ header {
 }
 .nav-drawer__wa-btn {
   margin-top: var(--space-5);
+  background-color: transparent;
+  border: 1px solid #25D366;
+  color: #25D366;
+  box-shadow: none;
+}
+.nav-drawer__wa-btn:hover {
+  background-color: #25D366;
+  color: var(--color-text-inverse);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
 }
 
 @media (max-width: 900px) {
@@ -1778,20 +1795,23 @@ header {
   justify-content: center;
   width: 56px;
   height: 56px;
-  background-color: #25D366;
+  background-color: #ffffff;
+  border: 2px solid #25D366;
   border-radius: 50%;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.40);
-  color: var(--color-text-inverse);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  color: #25D366;
   transition: all var(--transition-base);
 }
 .wa-float svg {
   width: 28px;
   height: 28px;
-  fill: currentColor;
+  display: block;
 }
 .wa-float:hover {
   transform: scale(1.08);
-  box-shadow: 0 6px 28px rgba(37,211,102,0.50);
+  background-color: #25D366;
+  color: var(--color-text-inverse);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.40);
 }
 
 /* FAB Tooltip */
@@ -2832,4 +2852,106 @@ header {
   transform: rotate(45deg);
   border-radius: 2px;
 }
+
+/* ============================================================
+   COOKIE CONSENT BANNER
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 9999;
+  background-color: rgba(15, 22, 35, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-4);
+  transition: opacity var(--transition-base) ease, transform var(--transition-base) ease, visibility var(--transition-base) ease;
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.cookie-banner.hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cookie-banner__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.cookie-banner__text {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  text-align: left;
+}
+
+.cookie-banner__link {
+  color: #60a5fa;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.cookie-banner__link:hover {
+  color: #93c5fd;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn--cookie-accept {
+  padding: 8px 20px;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-brand);
+  color: var(--color-text-inverse);
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-brand);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-fast);
+}
+
+.btn--cookie-accept:hover {
+  background-color: var(--color-brand-hover);
+  transform: translateY(-1px);
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+  .cookie-banner {
+    left: auto;
+    right: 32px;
+    bottom: 32px;
+    max-width: 480px;
+    padding: var(--space-4) var(--space-5);
+  }
+  
+  .cookie-banner__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  
+  .cookie-banner__text {
+    flex: 1;
+  }
+  
+  .cookie-banner__actions {
+    flex-shrink: 0;
+  }
+}
+
 

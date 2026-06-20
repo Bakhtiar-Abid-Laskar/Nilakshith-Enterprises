@@ -1,0 +1,186 @@
+/* ============================================================
+   components.css — Reusable UI Components
+   Nilakshith Enterprise — Internet, CCTV & IT Services
+   ============================================================ */
+
+/* ═══════════════════════════════════════════════
+   BRANDS CAROUSEL SECTION
+   ═══════════════════════════════════════════════ */
+
+.brands-section {
+  padding: 40px 0 48px;
+  background: var(--color-bg-surface, #F7F8FA);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Small uppercase label above the track */
+.brands-label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary, #4B5563);
+  margin-bottom: 24px;
+}
+
+/* The outer wrapper — clips the scrolling strip */
+.brands-track-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Left and right fade masks — create the "fading edges" effect */
+.brands-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.brands-fade--left {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg-surface, #F7F8FA) 0%, transparent 100%);
+}
+
+.brands-fade--right {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg-surface, #F7F8FA) 0%, transparent 100%);
+}
+
+/* The scrolling container — holds both logo lists side by side */
+.brands-track {
+  display: flex;
+  width: max-content;
+  animation: brands-scroll 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause on hover — accessible and lets users read logos */
+.brands-track:hover {
+  animation-play-state: paused;
+}
+
+/* Each logo list — logos in a horizontal row */
+.brands-list {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  padding: 12px 28px;
+  list-style: none;
+  margin: 0;
+}
+
+/* Individual logo item */
+.brand-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* The logo image */
+.brand-logo {
+  height: 80px;
+  width: auto;
+  max-width: 200px;
+  object-fit: contain;
+  opacity: 0.85;
+  will-change: transform, opacity;
+}
+
+/* ── Perspective scale effect ─────────────────── */
+.brands-track-wrapper {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.3) 8%,
+    rgba(0,0,0,0.7) 15%,
+    black 25%,
+    black 75%,
+    rgba(0,0,0,0.7) 85%,
+    rgba(0,0,0,0.3) 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0,0,0,0.3) 8%,
+    rgba(0,0,0,0.7) 15%,
+    black 25%,
+    black 75%,
+    rgba(0,0,0,0.7) 85%,
+    rgba(0,0,0,0.3) 92%,
+    transparent 100%
+  );
+}
+
+/* ── Keyframe: continuous left scroll ─────────── */
+@keyframes brands-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── Respect reduced motion preference ────────── */
+@media (prefers-reduced-motion: reduce) {
+  .brands-track {
+    animation: none;
+  }
+  .brands-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+  }
+  .brands-list--dupe {
+    display: none;
+  }
+}
+
+/* ── Mobile overrides ─────────────────────────── */
+@media (max-width: 768px) {
+  .brands-section {
+    padding: 32px 0 40px;
+  }
+  .brands-list {
+    gap: 36px;
+    padding: 12px 16px;
+  }
+  .brand-logo {
+    height: 60px;
+    max-width: 150px;
+  }
+  .brands-fade {
+    width: 64px;
+  }
+  .brands-track {
+    animation-duration: 22s;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands-section {
+    padding: 28px 0 36px;
+  }
+  .brands-list {
+    gap: 28px;
+    padding: 10px 12px;
+  }
+  .brand-logo {
+    height: 48px;
+    max-width: 120px;
+  }
+  .brands-fade {
+    width: 48px;
+  }
+  .brands-track {
+    animation-duration: 18s;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   END BRANDS CAROUSEL
+   ═══════════════════════════════════════════════ */

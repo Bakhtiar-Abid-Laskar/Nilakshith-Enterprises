@@ -308,6 +308,11 @@
     padding-block: 66px 40px !important;
   }
 
+  .hero__headline {
+    width: 100% !important;
+    text-align: center !important;
+  }
+
   .hero__badge {
     padding: 8px 14px 8px 12px !important;
     border-radius: 12px !important;

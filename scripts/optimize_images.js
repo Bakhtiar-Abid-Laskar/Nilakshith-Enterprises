@@ -8,12 +8,12 @@ const brandsDir = path.join(__dirname, '../brands');
 async function optimizeImages() {
   console.log('Starting image optimization...');
 
-  // 1. Resize logo_trans.webp to exactly 136x136 px WebP, quality 80
+  // 1. Resize logo_trans.webp to exactly 136x136 px WebP, quality 55 (effort 6)
   const logoInput = path.join(imgDir, 'logo_trans.png');
   const logoOutput = path.join(imgDir, 'logo_trans_136.webp');
   await sharp(logoInput)
     .resize(136, 136)
-    .webp({ quality: 80 })
+    .webp({ quality: 55, effort: 6 })
     .toFile(logoOutput);
   console.log('Saved logo_trans_136.webp');
 
@@ -24,13 +24,13 @@ async function optimizeImages() {
 
   await sharp(heroInput)
     .resize(420, 315)
-    .webp({ quality: 80 })
+    .webp({ quality: 70, effort: 6 })
     .toFile(hero420Output);
   console.log('Saved hero-graphic-420.webp');
 
   await sharp(heroInput)
     .resize(840, 630)
-    .webp({ quality: 75 })
+    .webp({ quality: 65, effort: 6 })
     .toFile(hero840Output);
   console.log('Saved hero-graphic-840.webp');
 

@@ -787,27 +787,68 @@ function initBrandsCarouselScaling() {
   let wrapperWidth = 0;
   let centerX = 0;
   let maxDistance = 0;
+  let cachedWrapperLeft = 0;
+  const logoOffsets = [];
 
   function measureWrapper() {
+    // Reset transforms to get correct layout offsets
+    logos.forEach(logo => {
+      logo.style.transform = '';
+      logo.style.opacity = '';
+    });
+
     const wrapperRect = wrapper.getBoundingClientRect();
     wrapperWidth = wrapperRect.width;
-    centerX = wrapperRect.left + wrapperWidth / 2;
+    cachedWrapperLeft = wrapperRect.left;
+    centerX = cachedWrapperLeft + wrapperWidth / 2;
     maxDistance = wrapperWidth / 2;
+
+    const track = qs('.brands-track', wrapper);
+    if (track) {
+      const originalTransform = track.style.transform;
+      track.style.transform = 'none';
+
+      const trackRect = track.getBoundingClientRect();
+      logoOffsets.length = 0;
+      logos.forEach(logo => {
+        const logoRect = logo.getBoundingClientRect();
+        logoOffsets.push({
+          logo,
+          width: logoRect.width,
+          offsetLeft: logoRect.left - trackRect.left
+        });
+      });
+
+      track.style.transform = originalTransform;
+    }
   }
+
   window.addEventListener('resize', measureWrapper);
   measureWrapper(); // initial measure
 
   function updateScales() {
-    // Batch read all logo rectangles first to avoid layout thrashing
-    const logoData = logos.map(logo => {
-      const rect = logo.getBoundingClientRect();
-      const isHovered = logo.closest('.brand-item')?.matches(':hover');
-      return { logo, rect, isHovered };
-    });
+    const track = qs('.brands-track', wrapper);
+    if (!track || !logoOffsets.length) {
+      requestAnimationFrame(updateScales);
+      return;
+    }
 
-    // Then write all scale and opacity styles
-    logoData.forEach(({ logo, rect, isHovered }) => {
-      const logoCenterX = rect.left + rect.width / 2;
+    // Get current horizontal displacement from computed transform (composited, no reflow!)
+    const style = window.getComputedStyle(track);
+    const transform = style.transform || style.webkitTransform;
+    let translateX = 0;
+    if (transform && transform !== 'none') {
+      const matrix = transform.match(/matrix.*\((.+)\)/);
+      if (matrix) {
+        const values = matrix[1].split(',');
+        translateX = parseFloat(values[4]) || 0;
+      }
+    }
+
+    const trackLeft = cachedWrapperLeft + translateX;
+
+    logoOffsets.forEach(({ logo, width, offsetLeft }) => {
+      const logoCenterX = trackLeft + offsetLeft + width / 2;
       const distanceFromCenter = Math.abs(centerX - logoCenterX);
 
       // Normalized distance (0 at center, 1 at edges)
@@ -820,6 +861,7 @@ function initBrandsCarouselScaling() {
       let scale = maxScale - (maxScale - minScale) * normalizedDistance;
 
       // Boost scale if hovered
+      const isHovered = logo.closest('.brand-item')?.matches(':hover');
       if (isHovered) {
         scale *= 1.15;
       }

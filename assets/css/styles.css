@@ -429,7 +429,7 @@ header {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-weight: 400;
   font-size: var(--text-xl);
-  color: var(--color-text-tertiary);
+  color: #003580;
 }
 .logo-tagline {
   font-size: 10px;
@@ -577,6 +577,7 @@ header {
   font-size: var(--text-base);
   color: var(--color-text-primary);
   border-bottom: 1px solid var(--color-border);
+  transition: none;
 }
 .nav-drawer__link.is-active {
   color: var(--color-brand);
@@ -2883,17 +2884,16 @@ header {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-lg);
   padding: var(--space-4);
-  transition: opacity var(--transition-base) ease, transform var(--transition-base) ease, visibility var(--transition-base) ease;
+  transition: opacity var(--transition-base) ease, transform var(--transition-base) ease;
   opacity: 1;
   transform: translateY(0);
-  visibility: visible;
 }
 
 .cookie-banner.hidden {
   opacity: 0;
   transform: translateY(24px);
-  visibility: hidden;
   pointer-events: none;
+  display: none;
 }
 
 .cookie-banner__inner {

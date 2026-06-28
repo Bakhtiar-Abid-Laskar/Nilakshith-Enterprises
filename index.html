@@ -22,11 +22,15 @@
   <link rel="preload" as="image" href="assets/img/logo_trans.webp" />
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://widget.tagembed.com" />
-
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/components.css" />
+    <style>
+    /* === CRITICAL CSS — inline for zero render-block === */
+    :root{--color-bg-page:#FFFFFF;--color-bg-surface:#F7F8FA;--color-bg-elevated:#ECEEF2;--color-bg-dark:#0F1623;--color-bg-dark-alt:#1A2236;--color-brand:#1A4FBF;--color-brand-hover:#1540A0;--color-brand-light:#EBF0FB;--color-brand-border:#C5D3F5;--color-accent:#F5A623;--color-text-primary:#111827;--color-text-secondary:#4B5563;--color-text-tertiary:#9CA3AF;--color-text-inverse:#FFFFFF;--color-text-brand:#1A4FBF;--color-border:#E5E7EB;--color-border-strong:#D1D5DB;--color-border-brand:#C5D3F5;--color-success:#16A34A;--color-success-bg:#F0FDF4;--shadow-xs:0 1px 2px rgba(0, 0, 0, 0.05);--shadow-sm:0 2px 8px rgba(0, 0, 0, 0.06),0 1px 3px rgba(0, 0, 0, 0.04);--shadow-md:0 4px 16px rgba(0, 0, 0, 0.08),0 2px 6px rgba(0, 0, 0, 0.04);--shadow-lg:0 8px 32px rgba(0, 0, 0, 0.10),0 4px 12px rgba(0, 0, 0, 0.05);--shadow-xl:0 16px 48px rgba(0, 0, 0, 0.12),0 6px 16px rgba(0, 0, 0, 0.06);--shadow-brand:0 4px 20px rgba(26, 79, 191, 0.20);--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:24px;--space-6:32px;--space-7:48px;--space-8:64px;--space-9:96px;--space-10:128px;--text-xs:0.75rem;--text-sm:0.875rem;--text-base:1rem;--text-lg:1.125rem;--text-xl:1.25rem;--text-2xl:1.5rem;--text-3xl:1.875rem;--text-4xl:2.25rem;--text-5xl:3rem;--text-6xl:3.75rem;--radius-sm:4px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;--radius-2xl:24px;--radius-pill:9999px;--transition-fast:150ms cubic-bezier(0.4, 0, 0.2, 1);--transition-base:250ms cubic-bezier(0.4, 0, 0.2, 1);--transition-slow:400ms cubic-bezier(0.4, 0, 0.2, 1);--transition-spring:500ms cubic-bezier(0.34, 1.56, 0.64, 1);--container-max:1200px;--container-pad:clamp(16px, 5vw, 48px)}*,::after,::before{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:var(--text-base);line-height:1.65;color:var(--color-text-secondary);background-color:var(--color-bg-page);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}header{height:72px}@media (max-width:768px){header{height:64px}}.navbar{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;background-color:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:border-bottom var(--transition-base),box-shadow var(--transition-base),height var(--transition-base)}@media (max-width:768px){.navbar{height:64px}}.navbar__inner{max-width:var(--container-max);margin-inline:auto;padding-inline:var(--container-pad);height:100%;display:flex;align-items:center;justify-content:space-between}.navbar__logo{display:flex;align-items:center;gap:var(--space-3);line-height:1.1;text-decoration:none}.navbar__logo-img{height:68px;width:auto;display:block}.logo-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:var(--text-xl);color:var(--color-text-primary)}.logo-suffix{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:var(--text-xl);color:#003580}.logo-tagline{font-size:10px;font-weight:600;color:var(--color-brand);letter-spacing:.1em;text-transform:uppercase;margin-top:1px}.hero{position:relative;background-color:var(--color-bg-page);padding-block:var(--space-8);min-height:calc(100vh - 72px);display:flex;align-items:center;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M-3,3 L3,-3 M0,12 L12,0 M9,15 L15,9' stroke='%231A4FBF' stroke-width='1' stroke-opacity='0.04'/%3E%3C/svg%3E")}@media (max-width:768px){.hero{min-height:auto;padding-block:var(--space-6)}}.hero__inner{display:grid;grid-template-columns:1.2fr 0.8fr;align-items:center;gap:var(--space-7)}@media (max-width:900px){.hero__inner{grid-template-columns:1fr;text-align:center;gap:var(--space-6)}}.hero__content{display:flex;flex-direction:column;align-items:flex-start}@media (max-width:900px){.hero__content{align-items:center}}.hero__badge{display:inline-flex;align-items:center;background-color:var(--color-brand-light);border:1px solid var(--color-brand-border);border-radius:var(--radius-pill);padding:6px 14px;margin-bottom:var(--space-4)}.hero__headline{font-size:var(--text-6xl);font-weight:800;line-height:1.1;color:var(--color-text-primary);margin-bottom:var(--space-4)}@media (max-width:768px){.hero__headline{font-size:var(--text-4xl)}}.floating-illustration{display:block;max-width:100%;height:auto}.preloader{position:fixed;inset:0;z-index:100000;background-color:var(--color-bg-page);display:flex!important;align-items:stretch!important;justify-content:stretch!important}.skeleton-wrapper{width:100%;max-width:var(--container-xl,1200px);margin:0 auto;padding:0 24px;display:flex;flex-direction:column;height:100vh;justify-content:flex-start;box-sizing:border-box}.skeleton-header{display:flex;justify-content:space-between;align-items:center;height:80px;border-bottom:1px solid rgba(255,255,255,.05);margin-bottom:var(--space-7,40px)}.skeleton-logo{width:180px;height:36px;border-radius:var(--radius-sm,4px)}.skeleton-nav{width:480px;height:20px;border-radius:var(--radius-sm,4px)}.skeleton-hero{display:grid;grid-template-columns:1.2fr 0.8fr;gap:var(--space-7,48px);align-items:center;margin-top:var(--space-6,32px)}.skeleton-hero-left{display:flex;flex-direction:column;gap:var(--space-4,16px)}.skeleton-badge{width:260px;height:32px;border-radius:var(--radius-pill,9999px)}.skeleton-title{width:100%;max-width:520px;height:110px;border-radius:var(--radius-md,8px)}.skeleton-text{width:100%;max-width:580px;height:64px;border-radius:var(--radius-sm,4px)}.skeleton-ctas{display:flex;gap:var(--space-4,16px);margin-top:var(--space-4,16px)}.skeleton-btn{width:150px;height:44px;border-radius:var(--radius-pill,9999px)}.skeleton-hero-right{width:100%;height:320px;border-radius:var(--radius-lg,16px)}.skeleton-pulse{position:relative;overflow:hidden;background:var(--color-bg-elevated,#eceef2)}.skeleton-pulse::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 0,rgba(255,255,255,.4) 50%,transparent 100%);animation:skeleton-shimmer 1.4s infinite;will-change:transform}@keyframes skeleton-shimmer{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+  </style>
+  <link rel="preload" href="assets/css/styles.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/styles.min.css"></noscript>
+  <link rel="preload" href="assets/css/components.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="assets/css/components.min.css"></noscript>
   <!-- Google Fonts deferred to avoid render-blocking -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" /></noscript>
@@ -114,8 +118,13 @@
         <!-- Logo -->
         <a href="index.html" class="navbar__logo" aria-label="Nilakshith Enterprise — home">
           <picture>
-            <source srcset="assets/img/logo_trans.webp" type="image/webp" />
-            <img src="assets/img/logo_trans.png" alt="Nilakshith Enterprise logo" class="navbar__logo-img" width="68" height="68" fetchpriority="high" />
+            <source srcset="assets/img/logo_trans_136.webp" type="image/webp">
+            <img src="assets/img/logo_trans_136.webp"
+                 alt="Nilakshith Enterprise logo"
+                 class="navbar__logo-img"
+                 width="68" height="68"
+                 fetchpriority="high"
+                 decoding="async">
           </picture>
           <div>
             <div>
@@ -202,7 +211,7 @@
 
             <div class="hero__typewriter-wrap animate-load hero-subtext-fade-in" aria-live="polite">
               <span class="hero__typewriter-prefix">We provide</span>
-              <span class="hero__typewriter-text" aria-label="Service type"></span>
+              <span class="hero__typewriter-text" role="status" aria-live="polite" aria-atomic="true"></span>
             </div>
 
             <p class="hero__subtext animate-load hero-subtext-fade-in">
@@ -246,8 +255,18 @@
           <div class="hero__visual animate-load hero-cta-scale-in">
             <!-- Hero Image Illustration -->
             <picture>
-              <source srcset="assets/img/hero-graphic.webp" type="image/webp" />
-              <img src="assets/img/hero-graphic.png" alt="Best WiFi, high speed broadband and CCTV services in Silchar, Karimganj, and Hailakandi - Nilakshith Enterprise" class="floating-illustration" width="840" height="630" loading="eager" />
+              <source
+                type="image/webp"
+                srcset="assets/img/hero-graphic-420.webp 420w,
+                        assets/img/hero-graphic-840.webp 840w"
+                sizes="(max-width: 768px) 380px, 420px">
+              <img src="assets/img/hero-graphic-840.webp"
+                   alt="Best WiFi, high speed broadband and CCTV services in Silchar, Karimganj, and Hailakandi"
+                   class="floating-illustration"
+                   width="840" height="630"
+                   loading="eager"
+                   fetchpriority="low"
+                   decoding="async">
             </picture>
           </div>
         </div>
@@ -294,92 +313,50 @@
           <!-- SET A (original) -->
           <ul class="brands-list" role="list">
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/airtel.webp" type="image/webp">
-                <img src="brands/airtel.png" alt="Airtel" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/airtel_160.webp" alt="Airtel" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/bharat benz.webp" type="image/webp">
-                <img src="brands/bharat benz.jpeg" alt="Bharat Benz" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/bharat-benz_160.webp" alt="Bharat Benz" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/honda.webp" type="image/webp">
-                <img src="brands/honda.png" alt="Honda" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/honda_160.webp" alt="Honda" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/tata motors.webp" type="image/webp">
-                <img src="brands/tata motors.jpeg" alt="Tata Motors" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/tata-motors_160.webp" alt="Tata Motors" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/tvs.webp" type="image/webp">
-                <img src="brands/tvs.png" alt="TVS" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/tvs_160.webp" alt="TVS" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/uco bank (1).webp" type="image/webp">
-                <img src="brands/uco bank (1).png" alt="UCO Bank" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/uco-bank-1_160.webp" alt="UCO Bank" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/zudio.webp" type="image/webp">
-                <img src="brands/zudio.jpg" alt="Zudio" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/zudio_160.webp" alt="Zudio" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
           </ul>
 
           <!-- SET B (duplicate — identical to Set A, for seamless infinite scroll) -->
           <ul class="brands-list brands-list--dupe" role="list" aria-hidden="true">
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/airtel.webp" type="image/webp">
-                <img src="brands/airtel.png" alt="Airtel" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/airtel_160.webp" alt="Airtel" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/bharat benz.webp" type="image/webp">
-                <img src="brands/bharat benz.jpeg" alt="Bharat Benz" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/bharat-benz_160.webp" alt="Bharat Benz" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/honda.webp" type="image/webp">
-                <img src="brands/honda.png" alt="Honda" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/honda_160.webp" alt="Honda" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/tata motors.webp" type="image/webp">
-                <img src="brands/tata motors.jpeg" alt="Tata Motors" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/tata-motors_160.webp" alt="Tata Motors" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/tvs.webp" type="image/webp">
-                <img src="brands/tvs.png" alt="TVS" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/tvs_160.webp" alt="TVS" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/uco bank (1).webp" type="image/webp">
-                <img src="brands/uco bank (1).png" alt="UCO Bank" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/uco-bank-1_160.webp" alt="UCO Bank" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
             <li class="brand-item">
-              <picture>
-                <source srcset="brands/zudio.webp" type="image/webp">
-                <img src="brands/zudio.jpg" alt="Zudio" class="brand-logo" loading="lazy" decoding="async" width="120" height="48">
-              </picture>
+              <img src="brands/zudio_160.webp" alt="Zudio" class="brand-logo" loading="lazy" decoding="async" width="80" height="80">
             </li>
           </ul>
         </div>
@@ -407,7 +384,7 @@
             </div>
             <h3 class="service-card__title">Broadband Internet</h3>
             <p class="service-card__desc">Customized high-speed fiber broadband and WiFi connections tailored for homes and offices.</p>
-            <a href="broadband.html" class="service-card__link">
+            <a href="broadband.html" class="service-card__link" aria-label="Learn more about Broadband Internet">
               Learn More <i>→</i>
             </a>
           </article>
@@ -422,7 +399,7 @@
             </div>
             <h3 class="service-card__title">CCTV & Surveillance</h3>
             <p class="service-card__desc">End-to-end CCTV installation including cameras, DVR/NVR setup, cabling, and remote mobile viewing for shops, homes, and offices.</p>
-            <a href="cctv.html" class="service-card__link">
+            <a href="cctv.html" class="service-card__link" aria-label="Learn more about CCTV Surveillance">
               Learn More <i>→</i>
             </a>
           </article>
@@ -434,7 +411,7 @@
             </div>
             <h3 class="service-card__title">IT Infrastructure & Networking</h3>
             <p class="service-card__desc">Professional LAN/WAN design, router/switch configuration, VLAN setup, and Wi-Fi deployment for businesses and institutions.</p>
-            <a href="networking.html" class="service-card__link">
+            <a href="networking.html" class="service-card__link" aria-label="Learn more about IT Infrastructure and Networking">
               Learn More <i>→</i>
             </a>
           </article>
@@ -446,7 +423,7 @@
             </div>
             <h3 class="service-card__title">CCTV AMC & Maintenance</h3>
             <p class="service-card__desc">Annual maintenance contracts with guaranteed response times — keep your surveillance system operating at peak performance year-round.</p>
-            <a href="cctv.html#amc" class="service-card__link">
+            <a href="cctv.html#amc" class="service-card__link" aria-label="Learn more about CCTV AMC and Maintenance">
               Learn More <i>→</i>
             </a>
           </article>
@@ -458,7 +435,7 @@
             </div>
             <h3 class="service-card__title">Network Configuration</h3>
             <p class="service-card__desc">VLAN configuration, L2/L3 routing, firewall setup, and enterprise Wi-Fi access point planning and deployment.</p>
-            <a href="networking.html" class="service-card__link">
+            <a href="networking.html" class="service-card__link" aria-label="Learn more about Network Configuration">
               Learn More <i>→</i>
             </a>
           </article>
@@ -555,18 +532,20 @@
             <p class="service-area-card__sub">We cover all of Barak Valley and nearby districts of Assam with fast on-site response.</p>
             
             <!-- Interactive Map Embed -->
-            <div class="service-area-map-wrapper" style="border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; height:220px; margin-block:var(--space-2);">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d350000!2d92.54!3d24.80!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4bf68d1d8b05%3A0xfc15cedc07960658!2sNILAKSHITH%20ENTERPRISE!5e0!3m2!1sen!2sin!4v1718500000000"
-                width="100%"
-                height="100%"
-                style="border:0; display:block;"
-                allowfullscreen=""
+            <div class="service-area-map-wrapper" style="border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; height:220px; margin-block:var(--space-2); position:relative; cursor:pointer;" id="map-placeholder-index" onclick="loadRealMap('index')">
+              <img
+                src="assets/img/map_placeholder.webp"
+                alt="Nilakshith Enterprise service area map"
                 loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Nilakshith Enterprise Service Area Map"
-              ></iframe>
+                decoding="async"
+                style="width:100%; height:100%; object-fit:cover;">
+              <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.15);">
+                <button type="button" class="btn btn--primary" style="padding:8px 16px; font-size:0.85rem; pointer-events:none;">
+                  📍 View Interactive Map
+                </button>
+              </div>
             </div>
+            <div id="map-real-index" style="display:none; height:220px; border:1px solid var(--color-border); border-radius:var(--radius-lg); overflow:hidden; margin-block:var(--space-2);"></div>
 
             <div>
               <span class="service-area-card__badge">Silchar, Karimganj, Hailakandi · Barak Valley, Assam</span>
@@ -597,14 +576,8 @@
         </div>
 
         <!-- Tagembed Google Reviews Widget - ID 328135 -->
-        <div class="tagembed-widget-container" data-animate="fade-up" data-animate-delay="150">
-          <iframe
-            src="https://widget.tagembed.com/328135?website=1"
-            allow="fullscreen"
-            style="width:100%;height:100%;overflow:auto;border:none;"
-            title="Nilakshith Enterprise - Google Customer Reviews"
-            loading="lazy">
-          </iframe>
+        <div class="tagembed-widget-container" id="tagembed-container" data-animate="fade-up" data-animate-delay="150" style="min-height: 400px; display: flex; align-items: center; justify-content: center; background: var(--color-bg-surface);">
+          <div style="color: var(--color-text-secondary); font-size: 0.9rem;">Loading reviews...</div>
         </div>
 
         <div class="reviews-cta" data-animate="fade-up" data-animate-delay="300">
@@ -1054,7 +1027,7 @@
   </button>
 
   <!-- JS -->
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.min.js" defer></script>
 <!-- FOOTER_END -->
 </body>
 </html>

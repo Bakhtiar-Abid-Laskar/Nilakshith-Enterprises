@@ -41,9 +41,11 @@ function initPreloader() {
   `;
 
   const done = () => {
-    // Add loaded class to trigger CSS fade-out transition
-    loader.classList.add('loaded');
-    // Prevent screen reader interference once loaded
+    loader.addEventListener('transitionend', () => {
+      loader.remove();
+    }, { once: true });
+    loader.style.transition = 'opacity 0.3s ease';
+    loader.style.opacity = '0';
     loader.setAttribute('aria-hidden', 'true');
   };
 
@@ -274,9 +276,10 @@ function initFAQ() {
         question.setAttribute('aria-expanded', 'false');
         answer.style.maxHeight = '';
       } else {
+        const height = answer.scrollHeight;
         item.classList.add('open');
         question.setAttribute('aria-expanded', 'true');
-        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.maxHeight = height + 'px';
       }
     }
 
@@ -367,7 +370,7 @@ function initWhatsAppModal() {
   let modalOverlay = qs('.wa-modal-overlay');
   if (!modalOverlay) {
     const modalHTML = `
-      <div class="wa-modal-overlay" id="wa-choice-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="wa-modal-title-id">
+      <div class="wa-modal-overlay" id="wa-choice-modal" aria-hidden="true" inert role="dialog" aria-modal="true" aria-labelledby="wa-modal-title-id">
         <div class="wa-modal-card">
           <div class="wa-modal-header">
             <span class="wa-modal-title" id="wa-modal-title-id">How can we help you?</span>
@@ -440,6 +443,7 @@ function initWhatsAppModal() {
   function openModal(e) {
     e.preventDefault();
     modalOverlay.classList.add('open');
+    modalOverlay.removeAttribute('inert');
     modalOverlay.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
     
@@ -450,6 +454,7 @@ function initWhatsAppModal() {
 
   function closeModal() {
     modalOverlay.classList.remove('open');
+    modalOverlay.setAttribute('inert', '');
     modalOverlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     waFab.focus();
@@ -722,19 +727,29 @@ function initCookieConsent() {
 
   const consentKey = 'cookie-consent-accepted';
 
-  // Check if consent has already been given
-  if (!localStorage.getItem(consentKey)) {
-    // Show banner after a slight delay
-    setTimeout(() => {
-      banner.classList.remove('hidden');
-    }, 1500);
-  }
-
   // Handle accept button click
   acceptBtn.addEventListener('click', () => {
     banner.classList.add('hidden');
     localStorage.setItem(consentKey, 'true');
+    banner.addEventListener('transitionend', function handler() {
+      banner.style.display = 'none';
+      banner.removeEventListener('transitionend', handler);
+    });
   });
+}
+
+// Delay cookie banner to avoid it being the LCP element
+function showCookieBanner() {
+  const consentKey = 'cookie-consent-accepted';
+  if (!localStorage.getItem(consentKey)) {
+    const banner = document.querySelector('.cookie-banner');
+    if (banner) {
+      banner.style.display = 'block';
+      // Force layout recalculation to trigger transition from display: none
+      banner.offsetHeight;
+      banner.classList.remove('hidden');
+    }
+  }
 }
 
 // Initialize on DOMContentLoaded
@@ -753,6 +768,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initEnquiryForm();
   initCookieConsent();
   initBrandsCarouselScaling();
+  initLazyReviews();
+
+  window.addEventListener('load', () => {
+    setTimeout(showCookieBanner, 500);
+  });
 });
 
 /**
@@ -764,14 +784,29 @@ function initBrandsCarouselScaling() {
   const logos = qsAll('.brand-logo', wrapper);
   if (!logos.length) return;
 
-  function updateScales() {
-    const wrapperRect = wrapper.getBoundingClientRect();
-    const wrapperWidth = wrapperRect.width;
-    const centerX = wrapperRect.left + wrapperWidth / 2;
-    const maxDistance = wrapperWidth / 2;
+  let wrapperWidth = 0;
+  let centerX = 0;
+  let maxDistance = 0;
 
-    logos.forEach(logo => {
+  function measureWrapper() {
+    const wrapperRect = wrapper.getBoundingClientRect();
+    wrapperWidth = wrapperRect.width;
+    centerX = wrapperRect.left + wrapperWidth / 2;
+    maxDistance = wrapperWidth / 2;
+  }
+  window.addEventListener('resize', measureWrapper);
+  measureWrapper(); // initial measure
+
+  function updateScales() {
+    // Batch read all logo rectangles first to avoid layout thrashing
+    const logoData = logos.map(logo => {
       const rect = logo.getBoundingClientRect();
+      const isHovered = logo.closest('.brand-item')?.matches(':hover');
+      return { logo, rect, isHovered };
+    });
+
+    // Then write all scale and opacity styles
+    logoData.forEach(({ logo, rect, isHovered }) => {
       const logoCenterX = rect.left + rect.width / 2;
       const distanceFromCenter = Math.abs(centerX - logoCenterX);
 
@@ -785,7 +820,6 @@ function initBrandsCarouselScaling() {
       let scale = maxScale - (maxScale - minScale) * normalizedDistance;
 
       // Boost scale if hovered
-      const isHovered = logo.closest('.brand-item')?.matches(':hover');
       if (isHovered) {
         scale *= 1.15;
       }
@@ -810,6 +844,52 @@ function initBrandsCarouselScaling() {
   if (!prefersReducedMotion) {
     requestAnimationFrame(updateScales);
   }
+}
+
+/**
+ * 16. DYNAMIC MAP LOADER (On click placeholder)
+ */
+window.loadRealMap = function(id) {
+  const placeholder = document.getElementById('map-placeholder-' + id);
+  const realMap = document.getElementById('map-real-' + id);
+  if (placeholder && realMap) {
+    placeholder.style.display = 'none';
+    realMap.style.display = 'block';
+    let url = '';
+    if (id === 'index') {
+      url = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d350000!2d92.54!3d24.80!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4bf68d1d8b05%3A0xfc15cedc07960658!2sNILAKSHITH%20ENTERPRISE!5e0!3m2!1sen!2sin!4v1718500000000';
+    } else if (id === 'contact') {
+      url = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.3!2d92.7847028!3d24.8025006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x374e4bf68d1d8b05%3A0xfc15cedc07960658!2sNILAKSHITH%20ENTERPRISE!5e0!3m2!1sen!2sin!4v1';
+    }
+    realMap.innerHTML = `<iframe src="${url}" width="100%" height="100%" style="border:0; display:block;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Nilakshith Enterprise location Map"></iframe>`;
+  }
+};
+
+/**
+ * 17. LAZY SOCIAL REVIEWS LOADER
+ */
+function initLazyReviews() {
+  const container = document.getElementById('tagembed-container');
+  if (!container) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        observer.disconnect();
+        container.innerHTML = `
+          <iframe
+            src="https://widget.tagembed.com/328135?website=1"
+            allow="fullscreen"
+            style="width:100%;height:100%;overflow:auto;border:none;"
+            title="Nilakshith Enterprise - Google Customer Reviews"
+            loading="lazy">
+          </iframe>
+        `;
+      }
+    });
+  }, { rootMargin: '200px' });
+
+  observer.observe(container);
 }
 
 

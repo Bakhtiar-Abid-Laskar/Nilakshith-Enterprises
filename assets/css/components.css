@@ -519,23 +519,26 @@
 
 /* Shimmer pulse effect */
 .skeleton-pulse {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-elevated, #ECEEF2);
+}
+.skeleton-pulse::after {
+  content: '';
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.04) 25%,
-    rgba(255, 255, 255, 0.08) 37%,
-    rgba(255, 255, 255, 0.04) 63%
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
   );
-  background-size: 400% 100%;
-  animation: skeleton-shimmer 1.4s ease infinite;
+  animation: skeleton-shimmer 1.4s infinite;
+  will-change: transform;
 }
-
 @keyframes skeleton-shimmer {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
 }
 
 /* Tablet responsive skeleton */
